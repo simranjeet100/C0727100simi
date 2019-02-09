@@ -2,7 +2,7 @@
 
 
 
-namespace C0727100
+namespace FRI_FEB_8
 
 {
 
@@ -16,7 +16,9 @@ namespace C0727100
 
             Elevator e = new Elevator();
 
-            e.run();
+            e.setup();
+
+            e.TraverseList();
 
         }
 
@@ -30,8 +32,6 @@ namespace C0727100
 
         public Node() { }
 
-        public Node floor;
-
         public Node elevatorUp;
 
         public string FloorNumber;
@@ -40,9 +40,23 @@ namespace C0727100
 
 
 
+    class Department
+
+    {
+
+        public Department aDepartment;
+
+
+
+    }
+
+
+
     class Elevator
 
     {
+
+        Node Head;
 
         Node FirstFloor;
 
@@ -54,7 +68,7 @@ namespace C0727100
 
 
 
-        public void run()
+        public void setup()
 
         {
 
@@ -66,7 +80,7 @@ namespace C0727100
 
             FourthFloor = new Node();
 
-
+            Head = FirstFloor;
 
             FirstFloor.FloorNumber = "First Floor";
 
@@ -83,6 +97,38 @@ namespace C0727100
             FourthFloor.FloorNumber = "Fourth Floor";
 
             FourthFloor.elevatorUp = null;
+
+        }
+
+
+
+        public void TraverseList()
+
+        {
+
+            Node temp;
+
+            temp = Head;
+
+
+
+            // where am I going to start?
+
+
+
+            while (temp != null)
+
+            {
+
+                Console.WriteLine(temp.FloorNumber);
+
+                temp = temp.elevatorUp;
+
+
+
+            }
+
+
 
         }
 
